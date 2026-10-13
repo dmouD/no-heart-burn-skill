@@ -1,0 +1,14 @@
+# Local workspace and account configuration
+/.agents/
+/.codex/
+/.aws/
+
+# Generated distribution packages
+/dist/
+*.zip
+
+# Local caches and operating system files
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db

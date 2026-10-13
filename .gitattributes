@@ -1,0 +1,5 @@
+# Use LF for project text files.
+* text=auto eol=lf
+
+# Keep source quotations byte-for-byte, including original line endings.
+no-heart-burn-skill/references/original/** -text

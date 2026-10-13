@@ -61,8 +61,6 @@ $no-heart-burn-skill 帮我把 README.md 中的“确认”改成“确定”，
 
 先把规矩立住，路才能越走越宽。`SKILL.md` 放规则，`agents/openai.yaml` 放显示信息，`references/` 留原句库和原文归档。
 
-分发怎么办？先打包。`dist/no-heart-burn-skill.zip` 是独立技能包，`dist/no-heart-burn-skill-github.zip` 是包含 README 等文件的仓库包；`dist/` 不入 Git。
-
 ## 安装：放对位置，再开口
 
 下载完了，再放进项目；目录放好了，再调用。宁可慢一点，也不能坏了规矩。

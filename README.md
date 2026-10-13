@@ -74,7 +74,6 @@ $no-heart-burn-skill 帮我把 README.md 中的“确认”改成“确定”，
    mkdir -p "$target_project/.agents/skills"
    cp -R "$skill_repo/no-heart-burn-skill" "$target_project/.agents/skills/"
    ```
-
 3. 复制完了，再打开 Codex。入口核对为 `.agents/skills/no-heart-burn-skill/SKILL.md`，在目标项目中调用技能；技能列表里没看到怎么办？先重启 Codex。
 
 规矩从哪看？项目技能目录与调用方式，见 [OpenAI 官方技能说明](https://learn.chatgpt.com/docs/build-skills)。
@@ -105,19 +104,3 @@ $no-heart-burn-skill 写一段“给备份做备份”的虚构小剧场。
 ```
 
 启用了，同一次任务就接着按这个口吻说。想换回来怎么办？明确要求“恢复普通表达”，或指定其他输出格式。
-
-## 上传 GitHub：地址填对了，再推
-
-名字先立住，建议仓库名使用 `no-heart-burn-skill`。先在 GitHub 创建一个空仓库；仓库建好了，再填地址；地址填对了，再推 `main`。
-
-在已提交初始版本的本地仓库根目录执行下面的命令。第一行要换成 GitHub 页面提供的实际仓库地址，账要记清，地址也要填清：
-
-```bash
-github_repo_url='替换为 GitHub 仓库的 HTTPS 或 SSH 地址'
-git remote add origin "$github_repo_url"
-git push -u origin main
-```
-
-不是我稳，是不能慌，一慌就容易做错事。地址要核对，改动要检查，提交要做好，再推到 GitHub。
-
-规矩不能坏，说明白了不烧心。

@@ -45,6 +45,8 @@ $no-heart-burn-skill 帮我把 README.md 中的“确认”改成“确定”，
 ```text
 .
 ├── README.md
+├── LICENSE
+├── package.json
 ├── .gitignore
 ├── .gitattributes
 └── no-heart-burn-skill/
@@ -78,6 +80,20 @@ $no-heart-burn-skill 帮我把 README.md 中的“确认”改成“确定”，
 
 规矩从哪看？项目技能目录与调用方式，见 [OpenAI 官方技能说明](https://learn.chatgpt.com/docs/build-skills)。
 
+### npm 安装：装完了，再复制
+
+npm 发什么？发 Skill 资源。维护者发布到 npm 后，在目标项目中安装，再复制包里的技能目录。包要装，目录要复制，入口要核对；先把项目路径换成自己的目录：
+
+```bash
+target_project="/path/to/your-project"
+cd "$target_project"
+npm install --save-dev no-heart-burn-skill --registry=https://registry.npmjs.org
+mkdir -p .agents/skills
+cp -R node_modules/no-heart-burn-skill/no-heart-burn-skill .agents/skills/
+```
+
+不是我稳，是不能慌，一慌就容易做错事。npm 安装将资源放进 `node_modules/`；复制完了，再核对 `.agents/skills/no-heart-burn-skill/SKILL.md`，再打开 Codex 调用。安装命令见 [npm 官方安装说明](https://docs.npmjs.com/cli/v11/commands/npm-install/)。
+
 ## 使用：先读规矩，再答问题
 
 问题怎么办？先答。显式调用：
@@ -104,3 +120,36 @@ $no-heart-burn-skill 写一段“给备份做备份”的虚构小剧场。
 ```
 
 启用了，同一次任务就接着按这个口吻说。想换回来怎么办？明确要求“恢复普通表达”，或指定其他输出格式。
+
+## 首次发布 npm：先查清，再发出去
+
+先把规矩立住，路才能越走越宽。下面是维护者的首次发布步骤。包名要有发布权限，版本要未发布，文件要齐；先核对 `package.json` 中的包名 `no-heart-burn-skill` 和版本 `1.0.0`。
+
+1. 先注册 npm 账号，再启用双因素认证（2FA）。交互式发布要按提示完成 2FA；自动化直接发布可使用具备发布权限、启用 bypass 2FA 的细粒度访问令牌，具体以 [npm 官方发布认证要求](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/) 为准。
+2. 账号准备完了，再进入仓库根目录登录。先替换仓库路径，按命令行和浏览器提示完成认证：
+
+   ```bash
+   skill_repo="/path/to/downloaded-repo"
+   cd "$skill_repo"
+   npm login --registry=https://registry.npmjs.org
+   ```
+
+3. 登录完了，再预览打包文件。清单要看，技能要齐，许可要带；预览见 [npm 官方 pack 说明](https://docs.npmjs.com/cli/v11/commands/npm-pack/)：
+
+   ```bash
+   npm pack --dry-run --ignore-scripts
+   ```
+
+   看见 `.tgz` 文件名怎么办？先看清是预览。这个命令只报告打包结果，不在工作区生成归档，也不上传。
+
+4. 清单核对完了，再执行公开发布，按提示完成认证：
+
+   ```bash
+   npm publish --access public --registry=https://registry.npmjs.org
+   ```
+
+宁可慢一点，也不能坏了规矩。发布成功后，再核对 npm 上的包和版本；步骤见 [npm 官方公开包发布说明](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/)。
+
+## 许可：规矩写清，用着不烧心
+
+本项目采用 [MIT License](LICENSE)，版权为 `Copyright (c) 2026 dmouD`。许可要读，声明要留；使用与分发按 `LICENSE` 的条件执行。

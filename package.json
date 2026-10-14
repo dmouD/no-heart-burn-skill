@@ -1,0 +1,30 @@
+{
+  "name": "no-heart-burn-skill",
+  "version": "1.0.0",
+  "description": "你说得对。但字不能乱改。一个按“不烧心公式”约束模型输出的 Agent Skill。",
+  "keywords": [
+    "agent-skill",
+    "ai",
+    "llm",
+    "prompt",
+    "skill",
+    "no-heart-burn"
+  ],
+  "author": "dmouD",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmouD/no-heart-burn-skill.git"
+  },
+  "homepage": "https://github.com/dmouD/no-heart-burn-skill#readme",
+  "bugs": {
+    "url": "https://github.com/dmouD/no-heart-burn-skill/issues"
+  },
+  "files": [
+    "no-heart-burn-skill/"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

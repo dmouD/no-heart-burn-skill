@@ -6,6 +6,7 @@
 # Generated distribution packages
 /dist/
 *.zip
+*.tgz
 
 # Local caches and operating system files
 __pycache__/

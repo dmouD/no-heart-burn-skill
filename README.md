@@ -10,6 +10,8 @@
 
 宁可慢一点，也不能坏了规矩。
 
+官网：<https://no-heart-burn-skill.aionly.fans>
+
 
 [![npm version](https://img.shields.io/npm/v/no-heart-burn-skill?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/no-heart-burn-skill)
 [![npm downloads](https://img.shields.io/npm/dm/no-heart-burn-skill?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/no-heart-burn-skill)
@@ -39,19 +41,23 @@
 
 ## 快速开始
 
-安装完了，再放进项目；目录放对了，再开口。选择 npm 或 GitHub 安装即可。
+安装完了，再放进项目；目录放对了，再开口。选择 skills CLI 或 GitHub 安装即可。
 
-### 通过 npm 安装
+### 通过 skills CLI 安装
 
 在**目标项目根目录**执行：
 
 ```bash
-npm install --save-dev no-heart-burn-skill --registry=https://registry.npmjs.org
-mkdir -p .agents/skills
-cp -R node_modules/no-heart-burn-skill/no-heart-burn-skill .agents/skills/
+npx skills add dmouD/no-heart-burn-skill
 ```
 
-npm 将资源安装到 `node_modules/no-heart-burn-skill/no-heart-burn-skill/`，复制后 Codex 从项目的 `.agents/skills/` 读取技能。安装命令见 [npm 官方说明](https://docs.npmjs.com/cli/v11/commands/npm-install/)。
+CLI 会克隆仓库、找到 `SKILL.md`，再让你选 agent 和安装方式；装完后 Codex 从项目的 `.agents/skills/` 读取技能。想一次到位、不再询问，就带参数执行：
+
+```bash
+npx skills add dmouD/no-heart-burn-skill -a codex -y
+```
+
+命令与选项见 [skills CLI 文档](https://www.skills.sh/docs/cli)。
 
 ### 通过 GitHub 安装
 
